@@ -1,0 +1,428 @@
+:root {
+  --bg: #f3eee6;
+  --panel: #fffaf4;
+  --text: #2a2019;
+  --muted: #6e6259;
+  --header: #21170f;
+  --brown: #6d3215;
+  --orange: #d86d1f;
+  --green: #64743b;
+  --blue: #2e667c;
+  --purple: #68417d;
+  --border: #dac9b7;
+  --shadow: 0 10px 24px rgba(48, 31, 20, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.site-header {
+  min-height: 88px;
+  padding: 16px clamp(22px, 4vw, 64px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  background: linear-gradient(90deg, #18130f, #2b1b11);
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(255,255,255,.38);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  color: #e77b2a;
+}
+
+.brand strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 600;
+}
+
+.brand small {
+  display: block;
+  margin-top: 3px;
+  color: #e8ddd3;
+  font-size: .92rem;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 30px;
+}
+
+.site-header nav a {
+  position: relative;
+  padding: 8px 2px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-header nav a.active,
+.site-header nav a:hover {
+  color: #f28733;
+}
+
+.site-header nav a.active::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f28733;
+}
+
+.hero {
+  position: relative;
+  min-height: clamp(430px, 52vw, 650px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    url("assets/Images/hero-beach-campsite-excursion.jpg")
+    center 48% / cover no-repeat;
+  color: #fff;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(18, 13, 9, .79) 0%,
+      rgba(18, 13, 9, .62) 33%,
+      rgba(18, 13, 9, .17) 67%,
+      rgba(18, 13, 9, .05) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(610px, 92%);
+  padding: 56px clamp(26px, 5vw, 76px);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 7vw, 6.6rem);
+  line-height: .92;
+  font-weight: 600;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+
+.accent-line {
+  width: 132px;
+  height: 3px;
+  margin: 28px 0 20px;
+  background: var(--orange);
+}
+
+.hero-tagline {
+  margin: 0;
+  color: #d2d59a;
+  font-size: clamp(1.12rem, 2vw, 1.5rem);
+  line-height: 1.35;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.hero-copy {
+  max-width: 470px;
+  margin: 18px 0 0;
+  color: #fff;
+  font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  line-height: 1.5;
+}
+
+.excursions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 32px clamp(22px, 3vw, 46px) 42px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.excursion-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.excursion-card > img {
+  width: 100%;
+  aspect-ratio: 1.55 / 1;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.excursion-card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 1.7vw, 1.8rem);
+}
+
+.card-tagline {
+  margin: 6px 0 14px;
+  font-weight: 800;
+}
+
+.kitchen-card .card-tagline { color: #a54e1c; }
+.camping-card .card-tagline { color: var(--blue); }
+.grocery-card .card-tagline { color: #577631; }
+.road-card .card-tagline { color: var(--purple); }
+
+.card-body > p:not(.card-tagline) {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.button {
+  display: block;
+  margin-top: auto;
+  padding: 13px 14px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.kitchen-button { background: var(--brown); }
+.camping-button { background: var(--blue); }
+.grocery-button { background: #597633; }
+.road-button { background: var(--purple); }
+
+.disabled {
+  opacity: .86;
+  cursor: default;
+}
+
+.about {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 26px clamp(22px, 3vw, 46px) 46px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .75fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.about-copy h2 {
+  margin: 4px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--orange);
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.about-divider {
+  margin: 10px 0 16px;
+  color: var(--orange);
+  font-size: 26px;
+}
+
+.about-copy p:not(.eyebrow) {
+  line-height: 1.55;
+}
+
+footer {
+  padding: 28px clamp(24px, 5vw, 72px);
+  display: grid;
+  grid-template-columns: 1fr 1.25fr auto;
+  gap: 34px;
+  align-items: center;
+  background: linear-gradient(90deg, #17130f, #2b1c12);
+  color: #eee4da;
+}
+
+blockquote {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 6px;
+  color: #e87b28;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-size: .85rem;
+}
+
+.footer-brand strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+}
+
+.footer-brand span,
+.copyright {
+  color: #cbbeb2;
+  font-size: .88rem;
+}
+
+.footer-brand span {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.copyright { margin: 0; }
+
+@media (max-width: 1050px) {
+  .excursions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-copy {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand small { font-size: .8rem; }
+
+.hero {
+  position: relative;
+  height: 360px;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    url("assets/Images/hero-beach-campsite-excursion.jpg")
+    center 48% / cover no-repeat;
+  color: #fff;
+}
+
+  .hero-overlay {
+    background: linear-gradient(0deg,
+      rgba(18,13,9,.9) 0%,
+      rgba(18,13,9,.68) 48%,
+      rgba(18,13,9,.16) 100%);
+  }
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 92%);
+  padding: 24px clamp(26px, 5vw, 76px);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: .95;
+  font-weight: 600;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+
+  .excursions {
+    grid-template-columns: 1fr;
+    padding: 22px 18px 32px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    padding: 20px 18px 34px;
+  }
+
+  .about-copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    padding: 26px 22px;
+  }
+
+  .copyright { grid-column: auto; }
+}
