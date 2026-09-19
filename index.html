@@ -2,13 +2,24 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SVM7VE5P7S"></script>
+  <!-- Google tag (gtag.js) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    const isLocal =
+      location.hostname === "localhost" ||
+      location.hostname === "127.0.0.1";
 
-    gtag('config', 'G-SVM7VE5P7S');
+    if (!isLocal) {
+      const gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-SVM7VE5P7S";
+      document.head.appendChild(gaScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      gtag("js", new Date());
+      gtag("config", "G-SVM7VE5P7S");
+    }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
